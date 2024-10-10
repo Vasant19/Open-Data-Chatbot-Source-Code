@@ -1,0 +1,8 @@
+// Placeholder for stylesheet , can add as necessary. 
+// Please review streamlit docs for embedded css/html
+// Can also use Tailwind CSS to add custom styles, again, please review streamlit docs
+
+.center-img {
+    display: flex;
+    justify-content: center;
+}
