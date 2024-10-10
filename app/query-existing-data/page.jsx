@@ -69,8 +69,6 @@ const QueryExistingData = () => {
               <pre className='text-black whitespace-pre-wrap bg-gray-100 p-2 rounded'>{result.sqlQuery}</pre>
               <h3 className='text-xl font-semibold mt-4 mb-2 text-black'>Query Result:</h3>
               <pre className='text-black whitespace-pre-wrap bg-gray-100 p-2 rounded'>{JSON.stringify(result.queryResult, null, 2)}</pre>
-              <h3 className='text-xl font-semibold mt-4 mb-2 text-black'>Answer:</h3>
-              <p className='text-black'>{result.result}</p>
             </>
           )}
         </div>
