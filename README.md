@@ -25,7 +25,8 @@ https://github.com/user-attachments/assets/2a2de702-0f9c-4665-90e8-4cd0e71a247e
 
 ## Repo Architecture 
 This project utilizes a **monorepo architecture**, which consolidates multiple related projects and components into a single repository.
-In this monorepo, each component of the chatbot is organized as a single script file, making it easy to test, modify, and execute specific functionalities independently. The structure supports clear separation of different functionalities while maintaining a cohesive environment for development.
+In this monorepo, each component of the chatbot is organized as a single script file, making it easy to test, modify, and execute specific functionalities independently. The structure supports clear separation of different functionalities while maintaining a cohesive environment for development. Additionally, the scripts are written without encapsulation to maintain simplicity, which enhances readability. Brief comments are included to provide context and further improve understanding.
+
 
 ## Branches
 This repository contains the following branches:
