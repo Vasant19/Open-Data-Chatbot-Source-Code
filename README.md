@@ -23,6 +23,8 @@ https://github.com/user-attachments/assets/2a2de702-0f9c-4665-90e8-4cd0e71a247e
 
 ```streamlit run main.py #For main branch```
 
+```npm run dev #For master branch```
+
 ## Repo Architecture 
 This project utilizes a **monorepo architecture**, which consolidates multiple related projects and components into a single repository.
 In this monorepo, each component of the chatbot is organized as a single script file, making it easy to test, modify, and execute specific functionalities independently. The structure supports clear separation of different functionalities while maintaining a cohesive environment for development. Additionally, the scripts are written without encapsulation to maintain simplicity, which enhances readability. Brief comments are included to provide context and further improve understanding.
@@ -32,8 +34,11 @@ In this monorepo, each component of the chatbot is organized as a single script 
 This repository contains the following branches:
 
 **Main**: The Primary branch for intial development with stable version.
+
 **Master**: The Second version of the project containing Futher production steps.
+
 **Final**: Contains the final output of the project.Follows File-based routing
+
 **PandasAI**: A general-purpose everyday chatbot utilizing BambooLLM. Please note that this branch does not include advanced features such as prompt engineering, RAG, database storage, agent training, or vector similarity search, which may result in less accurate outputs. A sample visualization file is also present in this branch for basic visualizations without requiring external frameworks.
 
 ## Tools Used
