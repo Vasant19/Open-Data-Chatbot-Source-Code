@@ -49,6 +49,3 @@ Each tool was selected after experimenting with different alternatives to ensure
 
 ## Maintenance
 Please note that I will not be maintaining the dependencies of this project. Additionally, there may be some placeholders or previous commits that could disrupt the code's execution. If you have any questions or feedback, feel free to reach out via email or create a pull request.
-
-I've noticed some activity on this repository and others, but many users haven't starred them. 
-**If you find this project helpful, please consider starring it so I can know it has benefited you!**
