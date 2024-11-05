@@ -10,7 +10,7 @@ We developed this as a proof of concept for an internal chatbot for IRCC (Immigr
 #### Current Developed State 
 https://github.com/user-attachments/assets/2a68702a-8c66-4d33-91aa-e576d7c5a428
 
-#### Further Prouction environment Integrating using Oauth 2.0, Nextjs, TailwindCSS and Django.
+#### Further Production environment steps Integrating using Oauth 2.0, Nextjs, TailwindCSS and Django.
 https://github.com/user-attachments/assets/2a2de702-0f9c-4665-90e8-4cd0e71a247e
 
 
