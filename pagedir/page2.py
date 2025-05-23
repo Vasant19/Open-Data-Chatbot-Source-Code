@@ -26,7 +26,6 @@ from langchain_core.prompts import (
     PromptTemplate,
     SystemMessagePromptTemplate,
 )
-from openai import OpenAI as OI
 
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
@@ -82,6 +81,7 @@ if uploaded_file is not None:
                     st.write(sqlagentresponse["output"])
                 except Exception as e:
                     st.write(f"Failed to process the query: {e}")
+
     # WHEN FILE IS PDF FORMAT
     if uploaded_file.name.endswith('.pdf'):
         embeddings = OpenAIEmbeddings(api_key=openai_api_key)
@@ -90,37 +90,39 @@ if uploaded_file is not None:
         file_name = uploaded_file.name
         base_name = os.path.splitext(file_name)[0]
         st.write(f"The filename is: {base_name} and it has {num_pages} pages")
-        
+
+        # Set seed
         def set_random_seed(seed):
             np.random.seed(seed)
             random.seed(seed)
-        
-        set_random_seed(60)   
-        
+        set_random_seed(60)
+
         raw_text = ''
         for i, page in enumerate(pdf_reader.pages):
             content = page.extract_text()
             if content:
                 raw_text += content
-    
+
         text_splitter = CharacterTextSplitter(
-            separator = "\n",
-            chunk_size = 1000,
-            chunk_overlap  = 200,
-            length_function = len
+            separator="\n",
+            chunk_size=1000,
+            chunk_overlap=200,
+            length_function=len
         )
         texts = text_splitter.split_text(raw_text)
 
         document_search = FAISS.from_texts(texts, embeddings)
         query = st.text_input("Enter your Query for the pdf")
         docs = document_search.similarity_search(query)
-        chain = load_qa_chain(llm=OI(),chain_type="map_reduce")
+
+        # Use ChatOpenAI from LangChain, NOT openai.OpenAI
+        llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=openai_api_key)
+        chain = load_qa_chain(llm=llm, chain_type="map_reduce")
 
         if st.button("ASK YOUR QUERY FOR NEW DATA"):
             with st.spinner("Analyzing..."):
                 try:
-                    
-                    output = chain.invoke(input={"input_documents": docs, "question": query})
+                    output = chain.invoke({"input_documents": docs, "question": query})
                     st.write(output["output_text"])
                 except Exception as e:
                     st.write(f"Failed to process the query: {e}")

@@ -55,10 +55,9 @@ menu()
 
 p0 = st.Page("pagedir/page0.py",title="WELCOME",icon="🍁")
 p1 = st.Page("pagedir/page1.py",title="Query existing Data",icon="🤖")
-p2 = st.Page("pagedir/page2.py",title="Upload and query new data",icon="🔍")
+p2 = st.Page("pagedir/page2.py",title="Upload and query Data (CSV / PDF)",icon="📖")
 p3 = st.Page("pagedir/page3.py",title="Visualize your Data",icon="📊")
-pdftemp = st.Page("pagedir/pagepdf.py",title="Pdf Query",icon="📖")
-pg = st.navigation({"HOME": [p0],"MODE 1": [p1],"MODE 2": [p2],"MODE 3": [p3],"Additional ": [pdftemp]})
+pg = st.navigation({"HOME": [p0],"MODE 1": [p1],"MODE 2": [p2],"MODE 3": [p3]})
 # Initialize the Streamlit page
 
 
@@ -145,15 +144,17 @@ with st.sidebar:
 # Step 4: User selects the LLM model
 with st.sidebar:
     model_options = ["gpt-3.5-turbo-0125","gpt-3.5-turbo","gpt-4o-2024-05-13","gpt-4o-mini"]
-    selected_model = st.radio("Select Model", model_options)
-    if selected_model == "gpt-3.5-turbo-0125":
+    selected_model = st.radio("Select Model", model_options, index=model_options.index("gpt-4o-mini"))
+
+    if selected_model == "gpt-4o-mini":
+        st.write("Selected gpt-4o-mini")
+    elif selected_model == "gpt-3.5-turbo-0125":
         st.write("Selected 3.5-0125 turbo model ")
     elif selected_model == "gpt-3.5-turbo":
         st.write("Select 3.5 turbo model")
     elif selected_model == "gpt-4o-2024-05-13":
         st.write("Selected 4 omni model")
-    elif selected_model == "gpt-4o-mini":
-        st.write("Selected gpt-4o-mini")
+    
 
     chosen_llm = ChatOpenAI(model=selected_model, temperature=0)
     

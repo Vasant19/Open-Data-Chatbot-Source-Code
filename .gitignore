@@ -2,3 +2,6 @@
 .env
 test.py
 welcomemessage.mp3
+
+*.~lock*
+
