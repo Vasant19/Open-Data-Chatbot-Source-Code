@@ -10,7 +10,7 @@ if st.session_state.role not in ["super-admin"]:
     st.stop()
 
 st.write(f"You are currently logged with the role of {st.session_state.role}.")
-st.title("🙏WELCOME TO TICASUK🙏")
+st.title("WELCOME TO TICASUK")
 welcomemessage = "Hello!!....Welcome to 'TICASUK'.... I Humbly welcome you. THIS is the home page of the application. In order to start ,you need to Press the connect button and choose a mode first and THEN ask me your questions! For further help you can press the menu button on top right and click 'Get help' button. IF..you face any issues or would Like to give feedback, click on the Report a bug button. Thank you for using 'Ticasuk',and, Enjoy querying!!!!"
 wma = "welcomemessage.mp3"
 text_to_audio(welcomemessage,wma)
