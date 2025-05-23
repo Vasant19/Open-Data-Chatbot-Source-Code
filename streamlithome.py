@@ -68,7 +68,8 @@ def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
-img = get_img_as_base64(CF2_PATH)
+
+img = get_img_as_base64("cf2.png")
 st.html(
     """
 <style>
@@ -81,12 +82,14 @@ st.html(
 
 page_bg_img = f"""
 <style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("data:image/png;base64,{img}");
-background-size: 100%;
-background-position: right;
-
+[data-testid="stAppViewContainer"] {{
+    background-image: url("data:image/png;base64,{img}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }}
+
 
 .stButton>button {{
         background-color: #26374a;
