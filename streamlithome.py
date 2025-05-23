@@ -37,33 +37,39 @@ from audio_recorder_streamlit import audio_recorder
 from streamlit_float import float_init
 from dotenv import load_dotenv
 from menu import *
+from pathlib import Path
+load_dotenv()  
+
+BASE_DIR = Path(__file__).resolve().parent
+CF2_PATH = BASE_DIR / "cf2.png"
+CF3_PATH = BASE_DIR / "cf3.png"
+
 st.set_page_config(
     page_title="Interactive Data to Understand Data",
     page_icon="🍁",
     initial_sidebar_state="collapsed",
     layout="wide",
-    menu_items={"Report a bug": "https://docs.google.com/forms/d/1rPpP_jL0r-jWTObnq4JglGjeaNbD8-jjUWslBMgqwPc/edit?pli=1","Get Help" : "https://kaurrmanpreett.github.io/Ticasuk_documentation/#user-guide"})
+    menu_items={"Report a bug": "https://docs.google.com/forms/d/1rPpP_jL0r-jWTObnq4JglGjeaNbD8-jjUWslBMgqwPc/edit?pli=1"})
 
 menu()
 
-p0 = st.Page("pagedir/page0.py",title="WELCOME",icon="🙏")
+p0 = st.Page("pagedir/page0.py",title="WELCOME",icon="🍁")
 p1 = st.Page("pagedir/page1.py",title="Query existing Data",icon="🤖")
 p2 = st.Page("pagedir/page2.py",title="Upload and query new data",icon="🔍")
 p3 = st.Page("pagedir/page3.py",title="Visualize your Data",icon="📊")
 pdftemp = st.Page("pagedir/pagepdf.py",title="Pdf Query",icon="📖")
-end = st.Page("pagedir/end.py",title="Thank you",icon="🍁")
-pg = st.navigation({"HOME": [p0],"MODE 1": [p1],"MODE 2": [p2],"MODE 3": [p3],"Additional ": [pdftemp],"Final": [end]})
+pg = st.navigation({"HOME": [p0],"MODE 1": [p1],"MODE 2": [p2],"MODE 3": [p3],"Additional ": [pdftemp]})
 # Initialize the Streamlit page
 
 
 st.title("IRCC 🍁 TICASUK")
-st.logo("cf3.png",link="https://www.canada.ca/en/immigration-refugees-citizenship.html")
+st.logo(CF3_PATH, link="https://www.canada.ca/en/immigration-refugees-citizenship.html")
 @st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
-img = get_img_as_base64("cf2.png")
+img = get_img_as_base64(CF2_PATH)
 st.html(
     """
 <style>
