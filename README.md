@@ -19,9 +19,7 @@ https://github.com/user-attachments/assets/2a2de702-0f9c-4665-90e8-4cd0e71a247e
 
 ```git clone "<my-repo-url>"```
 
-```streamlit run streamlithome.py  #For Final Branch ```
-
-```streamlit run main.py #For main branch```
+```streamlit run streamlithome.py  #For main Branch ```
 
 ```npm run dev #For master branch```
 
