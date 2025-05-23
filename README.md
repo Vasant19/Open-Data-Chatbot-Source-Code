@@ -33,11 +33,9 @@ In this monorepo, each component of the chatbot is organized as a single script 
 ## Branches
 This repository contains the following branches:
 
-**Main**: The Primary branch for intial development with stable version.
+**Main**: The Primary branch for intial development and Contains the final output, with stable version. Follows File-based routing
 
 **Master**: The Second version of the project containing Futher production steps.
-
-**Final**: Contains the final output of the project.Follows File-based routing
 
 **PandasAI**: A general-purpose everyday chatbot utilizing BambooLLM. Please note that this branch does not include advanced features such as prompt engineering, RAG, database storage, agent training, or vector similarity search, which may result in less accurate outputs. A sample visualization file is also present in this branch for basic visualizations without requiring external frameworks.
 
