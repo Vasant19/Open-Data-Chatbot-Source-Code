@@ -1,9 +1,0 @@
-streamlit
-pandas
-lida
-sqlalchemy
-langchain_community
-langchain_openai
-langchain_core
-pillow
-numpy
